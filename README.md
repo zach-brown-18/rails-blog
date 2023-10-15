@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blog where users can post and serve up all the tea in an online setting. Features are listed below. Built with Ruby on Rails as a learning project.
+- Authentication
+- Create, update and delete a user
+- Post text, pictures, audio or video
 
-Things you may want to cover:
+Ruby version 3.2.2
 
-* Ruby version
+Run tests with _____
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Follow the standard flow to run this application locally:
+1. Clone the git repository
+2. Install Ruby version 3.2.2 (recommended to used rbenv or rvm)
+3. In the project root folder, run
+    - `rails db:migrate`
+    - `rails s`
