@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: %i[ show edit update destroy ]
+  # before_action :set_session, only: %i[ show edit update destroy ]
 
   # GET /sessions or /sessions.json
   def index
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to user_url(@user)
     else
       message = "Blocked like a flimsy baby running back against Julius Peppers"
       redirect_to login_path, notice: message
@@ -47,12 +47,15 @@ class SessionsController < ApplicationController
 
   # DELETE /sessions/1 or /sessions/1.json
   def destroy
-    @session.destroy!
+    session.delete(:user_id)
+    redirect_to login_path, notice: "Logged out!"
 
-    respond_to do |format|
-      format.html { redirect_to sessions_url, notice: "Session was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    # @session.destroy!
+
+    # respond_to do |format|
+    #   format.html { redirect_to sessions_url, notice: "Session was successfully destroyed." }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
