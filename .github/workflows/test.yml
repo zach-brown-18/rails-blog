@@ -1,7 +1,7 @@
 name: Test
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,7 +11,7 @@ jobs:
           ruby-version: '3.2.2'
           bundler-cache: true
       - name: Rubocop
-        run: bin/rubocop
+        run: bundle exec rubocop
       - name: Setup test database
         run: bin/rails db:setup
       - name: Run tests
