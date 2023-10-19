@@ -5,13 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Ruby
+      - name: Set up Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.2'
           bundler-cache: true
-      - name: Install dependencies
-        run: bundle install
       - name: Rubocop
         run: bin/rubocop
       - name: Setup test database
